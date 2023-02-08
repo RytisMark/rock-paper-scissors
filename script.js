@@ -10,37 +10,66 @@ function playRound(playerSelection, computerSelection) {
     switch(playerSelection) {
         case "rock":
             if (computerSelection === "rock") {
-                return "It's a draw!";
+                return "draw";
             }
             else if (computerSelection === "paper") {
-                return "You lose! Paper beats Rock";
+                return "lose";
             }
             else if (computerSelection === "scissors") {
-                return "You won! Rock beats Scissors";
+                return "won";
             }
         case "paper":
             if (computerSelection === "rock") {
-                return "You won! Paper beats Rock";
+                return "won";
             }
             else if (computerSelection === "paper") {
-                return "It's a draw!";
+                return "draw";
             }
             else if (computerSelection === "scissors") {
-                return "You lose! Scissors beats Paper";
+                return "lose";
             }
         case "scissors":
             if (computerSelection === "rock") {
-                return "You lose! Rock beats Scissors";
+                return "lose";
             }
             else if (computerSelection === "paper") {
-                return "You won! Scissors beats Paper";
+                return "won";
             }
             else if (computerSelection === "scissors") {
-                return "It's a draw!";
+                return "draw";
             }
     }
 }
 
-const playerSelection = "rOcK";
-const computerSelection = getComputerChoice();
-console.log(playRound(playerSelection, computerSelection));
+function game() {
+    let playerCount = 0;
+    let computerCount = 0;
+    for (let i = 0; i < 5; i++) {
+        const playerSelection = prompt("What will you choose? Rock, Paper or Scissors?");
+        const computerSelection = getComputerChoice();
+        const outcome = playRound(playerSelection, computerSelection);
+        if (outcome === "won") {
+            playerCount++;
+            console.log("You won the round! Current points: you - " + playerCount + ", computer - " + computerCount);
+        }
+        else if (outcome === "lose") {
+            computerCount++;
+            console.log("You lost the round! Current points: you - " + playerCount + ", computer - " + computerCount);
+        }
+        else {
+            console.log("It's a draw! Current points: you - " + playerCount + ", computer - " + computerCount);
+        }
+    }
+    if (computerCount > playerCount) {
+        console.log("The computer won.");
+    }
+    else if (playerCount > computerCount) { 
+        console.log("You won!");
+    }
+    else {
+        console.log("It's a draw.");
+    }
+}
+
+
+game();
