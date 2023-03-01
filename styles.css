@@ -1,5 +1,4 @@
 body {
-    /* background-color: #5C4533; */
     background-color: #4F3B2B;
     color: #E7D7C1;
     font-size: 36px;
@@ -12,16 +11,15 @@ body {
 }
 
 .header {
-    /* background-color: #35271D; */
     background-color: #271D16;
     padding: 24px;
-    background-size: cover;
+    font-size: 48px;
 }
 
 .game-info {
     display: flex;
     flex-direction: column;
-    gap: 96px;
+    gap: 48px;
 }
 
 .results-container {
@@ -32,6 +30,10 @@ body {
 
 .scoreboard {
     margin-top: auto;
+}
+
+.round-info {
+    font-size: 24px;
 }
 
 .buttons {
@@ -53,12 +55,28 @@ button:hover {
     animation-iteration-count: infinite;
 }
 
+.btn-restart:hover {
+    animation: none;
+    transform: translateY(-0.25em);
+    transition: transform 0.5s;
+}
+
+.btn-restart {
+    background-color: #271D16;
+    color: #E7D7C1;
+    font-size: 36px;
+    margin: auto;
+    width: fit-content;
+    visibility: hidden;
+}
+
 a {
     font-size: 24px;
     text-decoration: none;
     color: #E7D7C1;
     margin-top: auto;
     margin-bottom: 24px;
+    padding-top: 24px;
 }
 
 @keyframes shake {
@@ -74,3 +92,4 @@ a {
     90% { transform: translate(1px, 2px) rotate(0deg); }
     100% { transform: translate(1px, -2px) rotate(-1deg); }
   }
+ 
